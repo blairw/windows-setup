@@ -79,6 +79,7 @@ git config --global user.email "EMAIL_ADDRESS_GOES_HERE"
 git config --global user.name "Blair Wang"
 ```
 
+For GitHub, you'll need to generate a Personal Access Token (PAT) at https://github.com/settings/tokens
 
 
 
