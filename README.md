@@ -27,7 +27,7 @@ DWORD BlockAADWorkplaceJoin = 1
 
 - Disable all "Cloud content search"
 - `HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows`
-  - Add `Explorer`, and in it, add `DisableSearchBoxSuggestions` DWORD (32-bit) = 1
+	- Add `Explorer`, and in it, add `DisableSearchBoxSuggestions` DWORD (32-bit) = 1
 
 
 ## Old Alt+Tab
@@ -101,7 +101,7 @@ Start menu remove recommended section:
 
 - https://www.thewindowsclub.com/show-or-hide-recommended-list-in-start-menu-on-windows-11
 - `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows`
-  - Add `Explorer`, and in it, add `HideRecentlyAddedApps` DWORD (32-bit) = 1
+	- Add `Explorer`, and in it, add `HideRecentlyAddedApps` DWORD (32-bit) = 1
 
 ### Microsoft Edge
 
@@ -111,6 +111,14 @@ Start menu remove recommended section:
 
 
 ## Blair-Specific Things
+
+### mypath
+
+- Make the folder `C:\00blair\mypath`
+- Add this folder to `PATH`
+- Shortcut this folder into itself
+- Add other handy shortcuts:
+	- `vsc` &rarr; VSCodium
 
 ### Fonts to Install
 
@@ -135,3 +143,9 @@ But it's probably not a terrible idea to have this set up anyway (e.g., for offl
 
 Instructions: https://docs.nextcloud.com/server/latest/user_manual/en/groupware/sync_windows10.html
 
+
+### Hosts file
+
+```
+sudo notepad C:\Windows\System32\drivers\etc\hosts
+```
