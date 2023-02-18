@@ -1,0 +1,2 @@
+generatemd:
+	./scripts/generate.sh
