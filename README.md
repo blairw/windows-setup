@@ -71,7 +71,7 @@ And then:
 
     sudo cmd
     cinst -y 7zip.install ant-renamer audacity audacity-lame audacity-ffmpeg
-    cinst -y ChocolateyGUI chromium dropbox everything firefox git git-fork greenshot
+    cinst -y ChocolateyGUI chromium dropbox everything explorerplusplus firefox git git-fork greenshot
     cinst -y handbrake.install hwinfo irfanview irfanviewplugins libreoffice-still logitech-options
     cinst -y monitorian mp3tag nextcloud-client notepadplusplus.install
     cinst -y powertoys processhacker.install signal spotify sumatrapdf.install tabby thunderbird
