@@ -67,6 +67,13 @@ Adapted from https://winaero.com/enable-classic-alttab-dialog-in-windows-11/
 And then:
 
     sudo cmd
+
+cinst -y sudo ChocolateyGUI dropbox nextcloud-client
+cinst -y firefox greenshot notepadplusplus.install atom.install sumatrapdf.install vscodium.install thunderbird
+cinst -y irfanview irfanviewplugins paint.net mp3tag signal spotify vlc whatsapp zoom
+cinst -y zotero
+cinst -y 7zip.install cryptomator everything filezilla passwordsafe powertoys microsoft-windows-terminal
+
     cinst -y 7zip.install ant-renamer audacity audacity-lame audacity-ffmpeg
     cinst -y ChocolateyGUI chromium dropbox everything firefox git git-fork greenshot
     cinst -y handbrake.install hwinfo irfanview irfanviewplugins libreoffice-still librewolf logitech-options
@@ -115,17 +122,21 @@ Latest beta supports hidpi scaling.
 
 Follow instructions at https://docs.microsoft.com/en-us/windows/wsl/install - be careful not to install using other legacy methods.
 
+- Note that Ubuntu will be automatically installed so **you do NOT need to download Ubuntu from the App Store**
+- wsl -l -v  # check current version
+
+
 ### Ubuntu handy installs
 
     sudo apt-get update && sudo apt-get upgrade
-    sudo apt-get install btop dos2unix ffmpeg lolcat neofetch pandoc rclone youtube-dl
+    sudo apt-get install bat btop dos2unix ffmpeg lolcat neofetch pandoc python3-venv rclone youtube-dl
 
 ### Git config
 
 Note: For GitHub, you'll need to generate a Personal Access Token (PAT) at https://github.com/settings/tokens
 
     git config --global credential.helper store
-    git config --global user.name "Blair Wang"
+    git config --global user.name "YOUR_NAME_GOES_HERE"
     git config --global user.email "EMAIL_ADDRESS_GOES_HERE"
 
 ### Cron
