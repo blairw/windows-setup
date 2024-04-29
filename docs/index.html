@@ -3095,10 +3095,13 @@ vertical-align: -.125em;
   </ul></li>
   <li><a href="#software-setup" id="toc-software-setup" class="nav-link" data-scroll-target="#software-setup">Software Setup</a>
   <ul class="collapse">
+  <li><a href="#initial-setup-of-scoop-first" id="toc-initial-setup-of-scoop-first" class="nav-link" data-scroll-target="#initial-setup-of-scoop-first">Initial setup of Scoop first</a></li>
+  <li><a href="#using-python-in-powershell" id="toc-using-python-in-powershell" class="nav-link" data-scroll-target="#using-python-in-powershell">Using Python in Powershell</a></li>
   <li><a href="#initial-setup-of-chocolatey" id="toc-initial-setup-of-chocolatey" class="nav-link" data-scroll-target="#initial-setup-of-chocolatey">Initial setup of Chocolatey</a></li>
   <li><a href="#google-chrome" id="toc-google-chrome" class="nav-link" data-scroll-target="#google-chrome">Google Chrome</a></li>
   <li><a href="#install-software-using-chocolatey." id="toc-install-software-using-chocolatey." class="nav-link" data-scroll-target="#install-software-using-chocolatey.">Install software using Chocolatey.</a></li>
   <li><a href="#csved" id="toc-csved" class="nav-link" data-scroll-target="#csved">CSVed</a></li>
+  <li><a href="#window-switcher" id="toc-window-switcher" class="nav-link" data-scroll-target="#window-switcher">Window-switcher</a></li>
   <li><a href="#explorer" id="toc-explorer" class="nav-link" data-scroll-target="#explorer">Explorer++</a></li>
   <li><a href="#microsoft-office" id="toc-microsoft-office" class="nav-link" data-scroll-target="#microsoft-office">Microsoft Office</a></li>
   <li><a href="#three-finger-drag" id="toc-three-finger-drag" class="nav-link" data-scroll-target="#three-finger-drag">Three Finger Drag</a></li>
@@ -3107,6 +3110,7 @@ vertical-align: -.125em;
   <ul class="collapse">
   <li><a href="#ubuntu-handy-installs" id="toc-ubuntu-handy-installs" class="nav-link" data-scroll-target="#ubuntu-handy-installs">Ubuntu handy installs</a></li>
   <li><a href="#git-config" id="toc-git-config" class="nav-link" data-scroll-target="#git-config">Git config</a></li>
+  <li><a href="#pbcopy-equivalent" id="toc-pbcopy-equivalent" class="nav-link" data-scroll-target="#pbcopy-equivalent">pbcopy equivalent</a></li>
   <li><a href="#cron" id="toc-cron" class="nav-link" data-scroll-target="#cron">Cron</a></li>
   </ul></li>
   <li><a href="#device-specific-instructions" id="toc-device-specific-instructions" class="nav-link" data-scroll-target="#device-specific-instructions">Device-Specific Instructions</a>
@@ -3242,10 +3246,32 @@ vertical-align: -.125em;
 </section>
 <section id="software-setup" class="level2">
 <h2 class="anchored" data-anchor-id="software-setup">Software Setup</h2>
+<section id="initial-setup-of-scoop-first" class="level3">
+<h3 class="anchored" data-anchor-id="initial-setup-of-scoop-first">Initial setup of Scoop first</h3>
+<p>Use Powershell:</p>
+<p>https://scoop.sh/</p>
+<p>Then:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>scoop install 7zip git fastfetch</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Python 3.11</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>scoop bucket add versions</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>scoop install versions<span class="op">/</span>python311</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="using-python-in-powershell" class="level3">
+<h3 class="anchored" data-anchor-id="using-python-in-powershell">Using Python in Powershell</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>python <span class="op">-</span>m venv <span class="op">.</span><span class="fu">venv</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="op">.</span>\<span class="op">.</span><span class="fu">venv</span>\Scripts\Activate<span class="op">.</span><span class="fu">ps1</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Equivalent of `which python`</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="op">(</span><span class="fu">Get-Command</span> python<span class="op">).</span><span class="fu">Path</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># If you need to delete a folder, this is the equivalent of `rm -rf`</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> some_folder <span class="op">-</span>Recurse <span class="op">-</span>Force</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
 <section id="initial-setup-of-chocolatey" class="level3">
 <h3 class="anchored" data-anchor-id="initial-setup-of-chocolatey">Initial setup of Chocolatey</h3>
 <p>In an admin <code>cmd</code>, run:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">@</span><span class="st">&quot;</span><span class="pp">%</span><span class="va">SystemRoot</span><span class="pp">%</span><span class="st">\System32\WindowsPowerShell\v1.0\powershell.exe&quot;</span> -NoProfile <span class="at">-InputFormat</span> None <span class="at">-ExecutionPolicy</span> Bypass <span class="at">-Command</span> <span class="st">&quot;[System.Net.ServicePointManager]::SecurityProtocol = 3072; iex ((New-Object System.Net.WebClient).DownloadString(&#39;https://community.chocolatey.org/install.ps1&#39;))&quot;</span> <span class="kw">&amp;&amp;</span> <span class="bu">SET</span> <span class="st">&quot;</span><span class="va">PATH</span>=<span class="pp">%</span><span class="va">PATH</span><span class="pp">%</span><span class="st">;</span><span class="pp">%</span><span class="va">ALLUSERSPROFILE</span><span class="pp">%</span><span class="st">\chocolatey\bin&quot;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">@</span><span class="st">&quot;</span><span class="pp">%</span><span class="va">SystemRoot</span><span class="pp">%</span><span class="st">\System32\WindowsPowerShell\v1.0\powershell.exe&quot;</span> -NoProfile <span class="at">-InputFormat</span> None <span class="at">-ExecutionPolicy</span> Bypass <span class="at">-Command</span> <span class="st">&quot;[System.Net.ServicePointManager]::SecurityProtocol = 3072; iex ((New-Object System.Net.WebClient).DownloadString(&#39;https://community.chocolatey.org/install.ps1&#39;))&quot;</span> <span class="kw">&amp;&amp;</span> <span class="bu">SET</span> <span class="st">&quot;</span><span class="va">PATH</span>=<span class="pp">%</span><span class="va">PATH</span><span class="pp">%</span><span class="st">;</span><span class="pp">%</span><span class="va">ALLUSERSPROFILE</span><span class="pp">%</span><span class="st">\chocolatey\bin&quot;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>(Source: https://docs.chocolatey.org/en-us/choco/setup)</p>
 </section>
 <section id="google-chrome" class="level3">
@@ -3258,60 +3284,63 @@ vertical-align: -.125em;
 <section id="install-software-using-chocolatey." class="level3">
 <h3 class="anchored" data-anchor-id="install-software-using-chocolatey.">Install software using Chocolatey.</h3>
 <p>For each of the following, first check the package status at:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>https:<span class="op">//</span>community.chocolatey.org<span class="op">/</span><span class="kw">packages</span><span class="op">/</span>PLEASE_PUT_PACKAGE_NAME_HERE</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>https:<span class="op">//</span>community.chocolatey.org<span class="op">/</span><span class="kw">packages</span><span class="op">/</span>PLEASE_PUT_PACKAGE_NAME_HERE</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>If all relevant tests are passing, then you can run the <code>choco install</code> command. If there are relevant tests that are not passing, consider installing manually.</p>
 <p>In other words, do these <strong>one at a time</strong>.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a># Get these started first.</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> sudo</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> chocolateygui</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> dropbox</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> nextcloud<span class="at">-client</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a># Should be OK, but please check, the status might have changed by the time you&#39;re reading this.</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> 7zip.install</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> audacity</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> audacity<span class="at">-ffmpeg</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> audacity<span class="at">-lame</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> brave</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> cryptomator</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> everything</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> firefox</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> irfanview</span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> irfanviewplugins</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> libreoffice<span class="at">-still</span></span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> mp3tag</span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> nettraffic</span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> notepadplusplus.install</span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> paint.net</span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> passwordsafe</span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> powertoys</span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> signal</span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> sumatrapdf.install</span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> thunderbird</span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> vscodium.install</span>
-<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> zoom</span>
-<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a># Optional, you may not need them</span>
-<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> greenshot</span>
-<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> logitech<span class="at">-options</span></span>
-<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> mactype</span>
-<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> slack</span>
-<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a># VirtualBox - first check https:/<span class="at">/www</span>.virtualbox.org<span class="at">/wiki/Downloads</span> for any notices about the most recent release - sometimes the most recent release causes BSOD</span>
-<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> virtualbox</span>
-<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a># Potentially problematic, but please check, they might be OK by the time you&#39;re reading this.</span>
-<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> atom.install</span>
-<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> librewolf</span>
-<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> processhacker.install</span>
-<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> spotify</span>
-<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a># TBC</span>
-<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> filezilla</span>
-<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> vlc.install</span>
-<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> zotero</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a># Get these started first.</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> sudo</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> chocolateygui</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> dropbox</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> nextcloud<span class="at">-client</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a># Should be OK, but please check, the status might have changed by the time you&#39;re reading this.</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> audacity</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> audacity<span class="at">-ffmpeg</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> audacity<span class="at">-lame</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> brave</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> cryptomator</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> everything</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> firefox</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> irfanview</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> irfanviewplugins</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> libreoffice<span class="at">-still</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> logioptionsplus</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> mp3tag</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> nettraffic</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> notepadplusplus.install</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> paint.net</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> passwordsafe</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> powertoys</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> signal</span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> sumatrapdf.install</span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> thunderbird</span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> vlc.install</span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> vscodium.install</span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> zoom</span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a># Optional, you may not need them</span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> greenshot</span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> logitech<span class="at">-options</span></span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> mactype</span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> slack</span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a># VirtualBox - first check https:/<span class="at">/www</span>.virtualbox.org<span class="at">/wiki/Downloads</span> for any notices about the most recent release - sometimes the most recent release causes BSOD</span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> virtualbox</span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a># Potentially problematic, but please check, they might be OK by the time you&#39;re reading this.</span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> atom.install</span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> librewolf</span>
+<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> processhacker.install</span>
+<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a># Syncthing - if the status on Chocolatey is problematic, use https:/<span class="at">/github</span>.com<span class="at">/Bill-Stewart/SyncthingWindowsSetup/releases</span>/</span>
+<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a># As advised by https:/<span class="at">/syncthing</span>.net<span class="at">/downloads</span>/</span>
+<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> syncthing</span>
+<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a># TBC</span>
+<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> filezilla</span>
+<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a>choco install <span class="at">-y</span> zotero</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>whatsapp???</p>
-<p>cinst -y ant-renamer cinst -y git git-fork cinst -y handbrake.install hwinfo cinst -y monitorian cinst -y qttabbar tabby</p>
+<p>cinst -y ant-renamer cinst -y git-fork cinst -y handbrake.install hwinfo cinst -y monitorian cinst -y qttabbar tabby</p>
 <p>Only if you want battery bar:</p>
 <pre><code>cinst -y batterybar</code></pre>
 <p>Only if you want xampp:</p>
@@ -3329,6 +3358,10 @@ vertical-align: -.125em;
 <section id="csved" class="level3">
 <h3 class="anchored" data-anchor-id="csved">CSVed</h3>
 <p>Install manually</p>
+</section>
+<section id="window-switcher" class="level3">
+<h3 class="anchored" data-anchor-id="window-switcher">Window-switcher</h3>
+<p>Install manaully: https://github.com/sigoden/window-switcher</p>
 </section>
 <section id="explorer" class="level3">
 <h3 class="anchored" data-anchor-id="explorer">Explorer++</h3>
@@ -3358,8 +3391,8 @@ vertical-align: -.125em;
 </ul>
 <section id="ubuntu-handy-installs" class="level3">
 <h3 class="anchored" data-anchor-id="ubuntu-handy-installs">Ubuntu handy installs</h3>
-<pre><code>sudo apt-get update &amp;&amp; sudo apt-get upgrade
-sudo apt-get install bat btop dos2unix ffmpeg lolcat neofetch pandoc python3-venv rclone youtube-dl</code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get update <span class="kw">&amp;&amp;</span> <span class="fu">sudo</span> apt-get upgrade</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get install bat btop dos2unix ffmpeg libreoffice lolcat neofetch pandoc python3-venv rclone</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="git-config" class="level3">
 <h3 class="anchored" data-anchor-id="git-config">Git config</h3>
@@ -3367,6 +3400,12 @@ sudo apt-get install bat btop dos2unix ffmpeg lolcat neofetch pandoc python3-ven
 <pre><code>git config --global credential.helper store
 git config --global user.name &quot;YOUR_NAME_GOES_HERE&quot;
 git config --global user.email &quot;EMAIL_ADDRESS_GOES_HERE&quot;</code></pre>
+</section>
+<section id="pbcopy-equivalent" class="level3">
+<h3 class="anchored" data-anchor-id="pbcopy-equivalent">pbcopy equivalent</h3>
+<p>Is just <code>clip.exe</code>. :)</p>
+<p>Please note, if you want to be able to copy characters that non-ascii Unicode (e.g., mdash), you will need to go to: System settings → Time &amp; language → Language &amp; region → Administrative language settings → Language for non-Unicode programs → <strong>Change system locale…</strong> And then enable <strong>Beta: Use Unicode UTF-8 for worldwide language support</strong>.</p>
+<p>Source: https://github.com/microsoft/WSL/issues/11047#issuecomment-1946510386</p>
 </section>
 <section id="cron" class="level3">
 <h3 class="anchored" data-anchor-id="cron">Cron</h3>

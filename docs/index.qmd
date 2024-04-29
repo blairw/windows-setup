@@ -101,6 +101,36 @@ Set DWORD `AltTabSettings` = 1.
 
 ## Software Setup
 
+### Initial setup of Scoop first
+
+Use Powershell:
+
+https://scoop.sh/
+
+Then:
+
+```powershell
+scoop install 7zip git fastfetch
+
+# Python 3.11
+scoop bucket add versions
+scoop install versions/python311
+```
+
+### Using Python in Powershell
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+
+# Equivalent of `which python`
+(Get-Command python).Path
+
+# If you need to delete a folder, this is the equivalent of `rm -rf`
+rm some_folder -Recurse -Force
+```
+
+
 ### Initial setup of Chocolatey
 
 In an admin `cmd`, run:
@@ -143,7 +173,6 @@ choco install -y dropbox
 choco install -y nextcloud-client
 
 # Should be OK, but please check, the status might have changed by the time you're reading this.
-choco install -y 7zip.install
 choco install -y audacity
 choco install -y audacity-ffmpeg
 choco install -y audacity-lame
@@ -154,6 +183,7 @@ choco install -y firefox
 choco install -y irfanview
 choco install -y irfanviewplugins
 choco install -y libreoffice-still
+choco install -y logioptionsplus
 choco install -y mp3tag
 choco install -y nettraffic
 choco install -y notepadplusplus.install
@@ -163,6 +193,7 @@ choco install -y powertoys
 choco install -y signal
 choco install -y sumatrapdf.install
 choco install -y thunderbird
+choco install -y vlc.install
 choco install -y vscodium.install
 choco install -y zoom
 
@@ -179,18 +210,20 @@ choco install -y virtualbox
 choco install -y atom.install
 choco install -y librewolf
 choco install -y processhacker.install
-choco install -y spotify
+
+# Syncthing - if the status on Chocolatey is problematic, use https://github.com/Bill-Stewart/SyncthingWindowsSetup/releases/
+# As advised by https://syncthing.net/downloads/
+choco install -y syncthing
 
 # TBC
 choco install -y filezilla
-choco install -y vlc.install
 choco install -y zotero
 ```
 
 whatsapp???
 
 cinst -y  ant-renamer
-cinst -y  git git-fork
+cinst -y  git-fork
 cinst -y handbrake.install hwinfo 
 cinst -y  monitorian
 cinst -y   qttabbar  tabby 
@@ -220,6 +253,11 @@ DO NOT install the following programs using Chocolatey:
 
 Install manually
 
+### Window-switcher
+
+Install manaully: https://github.com/sigoden/window-switcher
+
+
 ### Explorer++
 
 Use https://github.com/derceg/explorerplusplus
@@ -247,8 +285,10 @@ Follow instructions at https://docs.microsoft.com/en-us/windows/wsl/install - be
 
 ### Ubuntu handy installs
 
-    sudo apt-get update && sudo apt-get upgrade
-    sudo apt-get install bat btop dos2unix ffmpeg lolcat neofetch pandoc python3-venv rclone youtube-dl
+```zsh
+sudo apt-get update && sudo apt-get upgrade
+sudo apt-get install bat btop dos2unix ffmpeg libreoffice lolcat neofetch pandoc python3-venv rclone
+```
 
 ### Git config
 
@@ -257,6 +297,15 @@ Note: For GitHub, you'll need to generate a Personal Access Token (PAT) at https
     git config --global credential.helper store
     git config --global user.name "YOUR_NAME_GOES_HERE"
     git config --global user.email "EMAIL_ADDRESS_GOES_HERE"
+
+### pbcopy equivalent
+
+Is just `clip.exe`. :)
+
+Please note, if you want to be able to copy characters that non-ascii Unicode (e.g., mdash), you will need to go to: System settings &rarr; Time & language &rarr; Language & region &rarr; Administrative language settings &rarr; Language for non-Unicode programs &rarr; **Change system locale...** And then enable **Beta: Use Unicode UTF-8 for worldwide language support**.
+
+Source: https://github.com/microsoft/WSL/issues/11047#issuecomment-1946510386
+
 
 ### Cron
 
