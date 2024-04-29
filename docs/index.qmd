@@ -115,6 +115,10 @@ scoop install 7zip git fastfetch
 # Python 3.11
 scoop bucket add versions
 scoop install versions/python311
+
+# Quarto
+scoop bucket add extras
+scoop install extras/quarto
 ```
 
 ### Using Python in Powershell
@@ -185,6 +189,7 @@ choco install -y irfanviewplugins
 choco install -y libreoffice-still
 choco install -y logioptionsplus
 choco install -y mp3tag
+choco install -y monitorian
 choco install -y nettraffic
 choco install -y notepadplusplus.install
 choco install -y paint.net
@@ -224,8 +229,7 @@ whatsapp???
 
 cinst -y  ant-renamer
 cinst -y  git-fork
-cinst -y handbrake.install hwinfo 
-cinst -y  monitorian
+cinst -y handbrake.install hwinfo
 cinst -y   qttabbar  tabby 
 
 Only if you want battery bar:
