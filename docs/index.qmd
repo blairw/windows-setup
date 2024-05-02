@@ -110,7 +110,8 @@ https://scoop.sh/
 Then:
 
 ```powershell
-scoop install 7zip git fastfetch
+scoop install 7zip btop git git-lfs fastfetch nodejs-lts rclone
+git lfs install # as per https://docs.github.com/en/repositories/working-with-files/managing-large-files/installing-git-large-file-storage
 
 # Python 3.11
 scoop bucket add versions
